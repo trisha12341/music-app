@@ -32,6 +32,8 @@ const Album = async () => {
     ],
   });
 
+  // console.log(listOfAlbum)
+
   return (
     <main className="md:w-[80%] w-full h-full bg-stone-900 md:rounded-2xl pb-32">
       <HeaderPhone />
@@ -54,7 +56,7 @@ const Album = async () => {
           session={session}
           title="My Albums"
           views={`${listOfAlbum.reduce((a, b) => b.views + 0, 0)} total views`}
-          largeImage={listOfAlbum[1].largeImage}
+          largeImage={listOfAlbum[1]?.largeImage}
           listOfMusic={listOfAlbum}
         />
       )}

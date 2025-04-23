@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  id       String @id @default(uuid()) @map("_id") @db.Uuid
   userId   String @unique @default(uuid())
   username String
   email    String
@@ -26,14 +26,14 @@ model User {
 }
 
 model Music {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String @id @default(uuid()) @map("_id") @db.Uuid
   title       String
   description String
   largeImage  String
   coverImage  String
   musicUrl    String
   views       Int    @default(0)
-  lyric       String @db.String
+  lyric       String
   genre       String
 
   history   User?   @relation("history", fields: [historyId], references: [userId])

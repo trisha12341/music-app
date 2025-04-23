@@ -1,7 +1,6 @@
 "use client";
 
 import { useToggleAuth } from "@/state/store/toggleAuth";
-import { SiFacebook } from "react-icons/si";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -13,7 +12,7 @@ import { popUpAnimate } from "@animation/popup";
 const AuthDropDown = () => {
   const authState = useToggleAuth();
 
-  const onPressedSignIn = (type: "google" | "facebook") => {
+  const onPressedSignIn = (type: "google") => {
     signIn(type);
   };
 
@@ -68,19 +67,11 @@ const AuthDropDown = () => {
                 >
                   <Button
                     className="flex justify-start items-center gap-3 px-4 text-black font-[500] bg-white p-4 text-xl rounded-full w-[300px] hover:bg-stone-200 transition-colors"
-                    onClick={() => onPressedSignIn("facebook")}
-                    types="fill"
-                  >
-                    <SiFacebook size={30} className="text-blue-600" />
-                    <p className="text-xl font-[700]">Facebook</p>
-                  </Button>
-                  <Button
-                    className="flex justify-start items-center gap-3 px-4 text-black font-[500] bg-white p-4 text-xl rounded-full w-[300px] hover:bg-stone-200 transition-colors"
                     onClick={() => onPressedSignIn("google")}
                     types="fill"
                   >
                     <FcGoogle size={30} />
-                    <p className="text-xl font-[700]">Google</p>
+                    <p className="text-xl font-[700]">Continue with Google</p>
                   </Button>
                 </motion.div>
               </section>

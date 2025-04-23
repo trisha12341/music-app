@@ -67,7 +67,7 @@ export default async function RootLayout({
           <AlertUnAuthenticated />
           <main
             style={{ WebkitTapHighlightColor: "transparent" }}
-            className="w-screen h-screen flex flex-col md:flex-row items-center justify-between md:pt-2 "
+            className="w-svw h-svh flex flex-col md:flex-row items-center justify-between md:pt-2 "
           >
             <Sidebar />
             <AuthDropDown />
